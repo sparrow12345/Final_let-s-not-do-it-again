@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true,
+    "extensions.autoUpdate": false,
+    "extensions.ignoreRecommendations": false
+  }
+  
