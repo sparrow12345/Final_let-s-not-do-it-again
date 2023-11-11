@@ -13,6 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
       - name: Install Dependencies
         run: npm install
 
@@ -24,6 +28,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure Git
+        run: |
+          git config --global user.email "m.naser@innopolis.university"
+          git config --global user.name "sparrow12345"
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
