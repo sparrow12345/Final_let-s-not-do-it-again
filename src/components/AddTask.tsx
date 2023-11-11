@@ -12,24 +12,35 @@ const AddTask = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskValue, setNewTaskValue] = useState<string>('');
   const [newTaskDetails, setNewTaskDetails] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await addTodo({
-      id: uuidv4(),
-      text: newTaskValue,
-      details: newTaskDetails,
-    });
+    if (newTaskValue.trim() === '') {
+      setError('No Values?!');
+    } else if (newTaskDetails.trim() === '') {
+      setError('No Details?!');
+    } else {
+      await addTodo({
+        id: uuidv4(),
+        text: newTaskValue,
+        details: newTaskDetails,
+      });
+      setError('');
+      setModalOpen(false);
+      router.refresh();
+    }
     setNewTaskValue('');
     setNewTaskDetails('');
-    setModalOpen(false);
-    router.refresh();
   };
 
   return (
     <div>
       <button
-        onClick={() => setModalOpen(true)}
+        onClick={() => {
+          setModalOpen(true);
+          setError('');
+        }}
         className="btn btn-primary w-full"
       >
         Add new task <AiOutlinePlus className="ml-2" size={18} />
@@ -50,6 +61,7 @@ const AddTask = () => {
             placeholder="Details (if any)"
             className="input input-bordered w-full h-28"
           />
+          {error && <p style={{ color: 'red' }}>{error}</p>}
           <button type="submit" className="btn">
             Submit
           </button>

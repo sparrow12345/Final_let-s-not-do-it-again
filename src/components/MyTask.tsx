@@ -13,15 +13,22 @@ const MyTask: React.FC<TaskProps> = ({ task }) => {
   const { id, text, details } = task;
   const [taskToEdit, setTaskToEdit] = useState<string>(text);
   const [taskDetailsToEdit, setTaskDetailsToEdit] = useState<string>(details);
+  const [error, setError] = useState<string>('');
 
   const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const res = await editTodo({
-      id: id,
-      text: taskToEdit,
-      details: taskDetailsToEdit,
-    });
-    router.push('/mytasks');
+    if (taskToEdit.trim() === '') {
+      setError('No Values?!');
+    } else if (taskDetailsToEdit.trim() === '') {
+      setError('No Details?!');
+    } else {
+      const res = await editTodo({
+        id: id,
+        text: taskToEdit,
+        details: taskDetailsToEdit,
+      });
+      router.push('/mytasks');
+    }
   };
 
   return (
@@ -45,6 +52,7 @@ const MyTask: React.FC<TaskProps> = ({ task }) => {
         <button type="submit" className="btn">
           Submit
         </button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </main>
   );
