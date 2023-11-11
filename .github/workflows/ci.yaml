@@ -38,3 +38,9 @@ jobs:
           vercel-token: QYTY3jCyff7hooHv2jm8WXPQ
           vercel-org-id: team_eb0SQuBkNmJfPQjQQ1z8CIsu
           vercel-project-id: prj_7SH8Ri26utFMYfvdQJQl1nm5nfnj
+
+      # - name: Deploy to a Specific Branch
+      #   run: git push origin HEAD:your-branch-name
+
+      - name: Get Latest Commit Message
+        run: git log -1 --pretty=format:%B main
