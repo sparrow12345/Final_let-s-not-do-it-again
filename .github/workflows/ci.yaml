@@ -1,44 +1,43 @@
-name: CI
+# name: CI
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
 
-      - name: Configure Git
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-      - name: Install Dependencies
-        run: npm install
+#       - name: Configure Git
+#         run: |
+#           git config --global user.email "you@example.com"
+#           git config --global user.name "Your Name"
+#       - name: Install Dependencies
+#         run: npm install
 
-      - name: Build
-        run: npm run build
+#       - name: Build
+#         run: npm run build
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
+#   deploy:
+#     needs: build
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Configure Git
-        run: |
-          git config --global user.email "m.naser@innopolis.university"
-          git config --global user.name "sparrow12345"
-          ls
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: QYTY3jCyff7hooHv2jm8WXPQ
-          vercel-org-id: team_eb0SQuBkNmJfPQjQQ1z8CIsu
-          vercel-project-id: prj_7SH8Ri26utFMYfvdQJQl1nm5nfnj
+#     steps:
+#       - name: Configure Git
+#         run: |
+#           git config --global user.email "m.naser@innopolis.university"
+#           git config --global user.name "sparrow12345"
+#       - name: Deploy to Vercel
+#         uses: amondnet/vercel-action@v20
+#         with:
+#           vercel-token: QYTY3jCyff7hooHv2jm8WXPQ
+#           vercel-org-id: team_eb0SQuBkNmJfPQjQQ1z8CIsu
+#           vercel-project-id: prj_7SH8Ri26utFMYfvdQJQl1nm5nfnj
 
       # - name: Deploy to a Specific Branch
       #   run: git push origin HEAD:your-branch-name
