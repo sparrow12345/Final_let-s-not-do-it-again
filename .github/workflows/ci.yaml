@@ -32,8 +32,7 @@ jobs:
         run: |
           git config --global user.email "m.naser@innopolis.university"
           git config --global user.name "sparrow12345"
-      - name: Get Latest Commit Message
-        run: git log -1 --pretty=format:%B main
+          git log -1 --pretty=format:%B ${{ github.ref }}
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
