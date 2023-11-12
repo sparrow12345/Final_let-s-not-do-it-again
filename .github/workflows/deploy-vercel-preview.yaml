@@ -1,8 +1,8 @@
 name: Vercel Preview Deployment
 env:
-  VERCEL_ORG_ID: v2FJJYi5AOkTGSqLWo6hno0m
-  VERCEL_PROJECT_ID: prj_WewTcarowjCZ2pmoNeeaWAMtrbVW
-  VERCEL_TOKEN: 1lcRWa8BQDLg8ApPvonRZ9nL
+  VERCEL_ORG_ID: team_eb0SQuBkNmJfPQjQQ1z8CIsu
+  VERCEL_PROJECT_ID: prj_7SH8Ri26utFMYfvdQJQl1nm5nfnj
+  VERCEL_TOKEN: QYTY3jCyff7hooHv2jm8WXPQ
 on:
   push:
     branches-ignore:
