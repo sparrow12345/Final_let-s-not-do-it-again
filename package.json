@@ -9,7 +9,7 @@
     "lint": "next lint",
     "json-server": "json-server --watch src/data/todos.json --port 3001",
     "format": "prettier --write \"**/*.js\"",
-    "check": "prettier --check --ignore-path .prettierignore ./app",
+    "check": "prettier --check --ignore-path .prettierignore ./app"
   },
   "dependencies": {
     "daisyui": "^2.52.0",
