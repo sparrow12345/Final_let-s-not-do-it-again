@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { ITask } from '@/types/tasks';
 import { FormEventHandler, useState } from 'react';
-import { deleteTodo, editTodo } from '@/components/api';
+import { editTodo } from '@/components/api';
 
 interface TaskProps {
   task: ITask;
@@ -27,7 +27,9 @@ const MyTask: React.FC<TaskProps> = ({ task }) => {
         text: taskToEdit,
         details: taskDetailsToEdit,
       });
-      router.push('/mytasks');
+      setTimeout(() => {
+        router.push('/mytasks');
+      }, 300);
     }
   };
 
